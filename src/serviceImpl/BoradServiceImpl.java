@@ -9,11 +9,11 @@ import service.BoardService;
 
 public class BoradServiceImpl implements BoardService{
 	private static BoradServiceImpl instance = new BoradServiceImpl();
-	public static BoradServiceImpl getBorad() {
+	public static BoradServiceImpl getInstance() {
 		return instance;
 	}
 	BoardDAO dao; 
-	private BoradServiceImpl() {
+	BoradServiceImpl() {
 		dao = BoradDAOImpl.getInstance();
 	}
 	@Override
@@ -32,11 +32,13 @@ public class BoradServiceImpl implements BoardService{
 	}
 	@Override
 	public List<ArticleBean> findSome(String[] param)throws Exception {
-		
+		System.out.println("서비스에 넘어간 파라미터1 :"+param[0]);
+		System.out.println("서비스에 넣어간 파라미터2 :"+param[1]);
+		System.out.println("서비스에서 본 리스트 결과: "+dao.selectByWord(param));
 		return dao.selectByWord(param);
 	}
 	@Override
-	public List<ArticleBean> List() throws Exception{
+	public List<ArticleBean> list() throws Exception{
 		return dao.selectAll();
 	}
 	@Override
@@ -58,5 +60,10 @@ public class BoradServiceImpl implements BoardService{
 			result = "삭제할 게시물이 없습니다.";
 		}
 		return result;
+	}
+	@Override
+	public int count() throws Exception{
+		
+		return 0;
 	}
 }

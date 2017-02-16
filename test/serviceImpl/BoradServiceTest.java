@@ -2,38 +2,68 @@ package serviceImpl;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
+import domain.ArticleBean;
+
 public class BoradServiceTest {
+
+	BoradServiceImpl service = new BoradServiceImpl();
+
 	@Test
-	public void testAddArticle() {
-		fail("Not yet implemented");
-	}
- 
-	@Test @Ignore
-	public void testFindOne() {
-		fail("Not yet implemented");
+	@Ignore
+	public void testAddArticle() throws Exception {
+		ArticleBean bean = new ArticleBean();
+		bean.setId("song");
+		bean.setContent("안녕하세요");
+		bean.setTitle("인사말");
+		bean.setReadCount("50");
+		bean.setRegdate("2017-02-01");
+		assertTrue(service.addArticle(bean).equals("게시물이 등록되었습니다."));
 	}
 
 	@Test
-	public void testFindSome() {
-		fail("Not yet implemented");
+	@Ignore
+	public void testFindOne() throws Exception {
+		ArticleBean bean = new ArticleBean();
+		bean.setSeq("27");
+		assertTrue(service.findOne(bean).getId().equals("송상"));
 	}
 
 	@Test
-	public void testList() {
-		fail("Not yet implemented");
+	@Ignore
+	public void testFindSome() throws Exception {
+		String[] arr =new String[2];
+		arr[0] = "title";
+		arr[1] = "후기";
+		List<ArticleBean> list = new ArrayList<>();
+		list = service.findSome(arr);
+		assertTrue(list.get(0).getId().equals("가렌"));
+	}
+	@Test
+	public void testList() throws Exception {
+		List<ArticleBean> list = new ArrayList<>();
+		list = service.list();
+		assertTrue(list.get(0).getId().equals("송상"));
 	}
 
 	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
+	@Ignore
+	public void testUpdate() throws Exception {
+		ArticleBean bean = new ArticleBean();
+		bean.setTitle("");
 	}
 
 	@Test
-	public void testDelete() {
-		fail("Not yet implemented");
+	@Ignore
+	public void testDelete() throws Exception {
+		ArticleBean bean = new ArticleBean();
+		bean.setSeq("40");
+		assertTrue(service.delete(bean).equals("게시물은 삭제되었습니다."));
 	}
 
 }

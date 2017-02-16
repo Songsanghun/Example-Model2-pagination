@@ -28,7 +28,7 @@ public class BoradDAOImpl implements BoardDAO {
 	public ArticleBean selectBySeq(ArticleBean param) throws Exception {
 		ArticleBean article = null;    //null체크 
 		String sql = String.format("SELECT seq,id,title,content,regdate,read_count "
-				+ "	FROM Acticle WHERE seq='%s'", param.getId());
+				+ "	FROM Acticle WHERE seq='%s'", param.getSeq());
 		ResultSet rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD).getConnection().createStatement().executeQuery(sql);
 		if(rs.next()){
 			article = new ArticleBean();
@@ -46,7 +46,8 @@ public class BoradDAOImpl implements BoardDAO {
 		//like : '%찾아내고싶은 키워드%'
 		ArticleBean article = null; 
 		String sql = "SELECT seq,id,title,content,regdate,read_count FROM Acticle "
-				+ " WHERE "+param[0]+"LIKE '%"+param[1]+"%'";
+				+ " WHERE "+param[0]+" LIKE '%"+param[1]+"%'";
+		System.out.println("DAO에서 실행된 쿼리:"+sql);
 		ResultSet rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD).getConnection().createStatement().executeQuery(sql);
 		while(rs.next()){
 			article = new ArticleBean();
@@ -65,7 +66,16 @@ public class BoradDAOImpl implements BoardDAO {
 		List<ArticleBean> list = new ArrayList<ArticleBean>();
 		ArticleBean article = null;  //필수
 		String sql = "SELECT seq,id,title,content,regdate,read_count FROM Acticle";
-		ResultSet rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD).getConnection().createStatement().executeQuery(sql);
+		
+		Connection connection = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD)
+				.getConnection();
+		if(connection==null){
+			System.out.println("커넥션이 널이다.");
+		}else{
+			System.out.println("널이 아니다.");
+		}
+		Statement stat = connection.createStatement();
+		ResultSet rs = stat.executeQuery(sql);
 		while(rs.next()){
 			article = new ArticleBean();
 			article.setSeq(rs.getString("seq"));
@@ -90,5 +100,10 @@ public class BoradDAOImpl implements BoardDAO {
 		String sql = String.format("DELETE FROM Acticle WHERE seq='%s'", param.getSeq());
 		int rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD).getConnection().createStatement().executeUpdate(sql);
 		return rs;
+	}
+	@Override
+	public int count() throws Exception {
+		
+		return 0;
 	}
 }

@@ -8,10 +8,11 @@ public interface BoardService {
 	//r
 	public ArticleBean findOne(ArticleBean param)throws Exception;
 	public List<ArticleBean> findSome(String[] param)throws Exception;
-	public List<ArticleBean> List()throws Exception;
+	public List<ArticleBean> list()throws Exception;
 	
 	//u
 	public String update(ArticleBean param)throws Exception;
 	//d
 	public String delete(ArticleBean param)throws Exception;
+	public int count()throws Exception;
 }

@@ -58,3 +58,6 @@ WHERE seq='%s'
 --DELETE
 DELETE FROM Acticle WHERE seq='%s'
 DELETE FROM Acticle WHERE seq='1'
+
+
+DAO에서 실행된 쿼리:SELECT seq,id,title,content,regdate,read_count FROM Acticle  WHERE title LIKE '%후기%';

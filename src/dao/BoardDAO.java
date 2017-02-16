@@ -20,4 +20,5 @@ public interface BoardDAO {
 
 	// d
 	public int delete(ArticleBean param)throws Exception;
+	public int count()throws Exception;
 }
