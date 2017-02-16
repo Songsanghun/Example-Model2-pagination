@@ -2,60 +2,61 @@ package serviceImpl;
 
 import java.util.*;
 
+import dao.BoardDAO;
+import daoImpl.BoradDAOImpl;
 import domain.ArticleBean;
 import service.BoardService;
 
 public class BoradServiceImpl implements BoardService{
-	private List<ArticleBean> list;
-	public BoradServiceImpl() {
-		list = new ArrayList<ArticleBean>();  //()안에 아무것도 안넣으면 Default 가 된다. 그러면 기본이 10 되고 1씩 증가한다.
+	private static BoradServiceImpl instance = new BoradServiceImpl();
+	public static BoradServiceImpl getBorad() {
+		return instance;
+	}
+	BoardDAO dao; 
+	private BoradServiceImpl() {
+		dao = BoradDAOImpl.getInstance();
 	}
 	@Override
-	public void addArticle(ArticleBean param){
-		list.add(param);
-	}
-	@Override
-	public ArticleBean findOne(ArticleBean param) {
-		ArticleBean articleOne = new ArticleBean();
-		for(ArticleBean bean:list){
-			if(param.getSeq().equals(bean.getSeq())){
-				articleOne = bean;
-				break;
-			}
+	public String addArticle(ArticleBean param)throws Exception{
+		String result = "";
+		if(dao.insert(param)!=0){
+			result = "게시물이 등록되었습니다.";
+		}else{
+			result = "게시물이 등록되지 않았습니다.";
 		}
-		return articleOne;
+		return result;
 	}
 	@Override
-	public List<ArticleBean> findSome(ArticleBean param) {
-		List<ArticleBean> listSome = new ArrayList<ArticleBean>();
-		for(ArticleBean bean:list){
-			if(param.getId().equals(bean.getId())){
-				listSome.add(bean);
-			}
-		}
-		return listSome;
+	public ArticleBean findOne(ArticleBean param)throws Exception {
+		return dao.selectBySeq(param);
 	}
 	@Override
-	public List<ArticleBean> List() {
-		return list;
-	}
-	@Override
-	public void update(ArticleBean param) {
-		for(ArticleBean bean:list){
-			if(param.getSeq().equals(bean.getSeq())){
-				bean.setId((param.getId().equals(""))?bean.getId():param.getId());
-				bean.setTitle((param.getTitle().equals(""))?bean.getTitle():param.getTitle());
-				}
-			}
-	}
-	@Override
-	public void delete(ArticleBean param) {
-		Iterator<ArticleBean> it = list.iterator();
-		while(it.hasNext()){
-			if(it.next().getSeq().equals(param.getSeq())){
-				it.remove();
-			}
-		}
+	public List<ArticleBean> findSome(String[] param)throws Exception {
 		
+		return dao.selectByWord(param);
+	}
+	@Override
+	public List<ArticleBean> List() throws Exception{
+		return dao.selectAll();
+	}
+	@Override
+	public String update(ArticleBean param) throws Exception{
+		String result = "";
+		if(dao.update(param)!=0){
+			result = "게시물이 수정되었습니다.";
+		}else{
+			result = "수정할 게시물이 없습니다.";
+		}
+		return result;
+	}
+	@Override
+	public String delete(ArticleBean param) throws Exception{
+		String result = "";
+		if(dao.delete(param)!=0){
+			result = "게시물은 삭제되었습니다.";
+		}else{
+			result = "삭제할 게시물이 없습니다.";
+		}
+		return result;
 	}
 }

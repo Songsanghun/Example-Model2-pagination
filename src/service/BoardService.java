@@ -3,15 +3,15 @@ import domain.ArticleBean;
 import java.util.*;
 public interface BoardService {
 	//c
-	public void addArticle(ArticleBean param); // Article 글하나를 의미
+	public String addArticle(ArticleBean param)throws Exception; // Article 글하나를 의미
 	
 	//r
-	public ArticleBean findOne(ArticleBean param);
-	public List<ArticleBean> findSome(ArticleBean param);
-	public List<ArticleBean> List();
+	public ArticleBean findOne(ArticleBean param)throws Exception;
+	public List<ArticleBean> findSome(String[] param)throws Exception;
+	public List<ArticleBean> List()throws Exception;
 	
 	//u
-	public void update(ArticleBean param);
+	public String update(ArticleBean param)throws Exception;
 	//d
-	public void delete(ArticleBean param);
+	public String delete(ArticleBean param)throws Exception;
 }
