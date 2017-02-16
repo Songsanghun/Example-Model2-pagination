@@ -14,7 +14,7 @@
 <body>
 
 	<div style="width: 90%"></div>
-	<table class="table_default margin_center "
+	<table class="table_default margin_center text_center"
 		style="width: 500px; margin-top: 100px">
 		<tr>
 			<th>No</th>
@@ -50,7 +50,7 @@
 			}
 		%>
 		<tr>
-			<td>
+			<td colspan="5">
 				<div>
 					<%="◀"%>
 

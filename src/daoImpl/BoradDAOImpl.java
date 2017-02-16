@@ -91,7 +91,7 @@ public class BoradDAOImpl implements BoardDAO {
 
 	@Override
 	public int update(ArticleBean param) throws Exception {
-		String sql =String.format("UPDATE Acticle SET title='%s',content='%s',regdate='%s'", param.getTitle(),param.getContent(),param.getRegdate());
+		String sql =String.format("UPDATE Acticle SET title='%s',content='%s',regdate='%s' WHERE seq='%s'", param.getTitle(),param.getContent(),param.getRegdate(),param.getSeq());
 		int rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD).getConnection().createStatement().executeUpdate(sql);		
 		return rs;
 	}
