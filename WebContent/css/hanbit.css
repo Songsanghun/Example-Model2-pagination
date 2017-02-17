@@ -166,7 +166,7 @@ a:active {color: #0408080;} /* selected link */
 .policy>dd{float:left;}
 	
 .gnb {
-   list-style-type: none;
+   list-style: none;
    margin: 0;
    padding: 0;
    /* overflow: hidden; */
@@ -175,9 +175,10 @@ a:active {color: #0408080;} /* selected link */
 
 .gnb li {
    float: left;
+   display: inline;
 }
 
-.gnb>li>a {
+.gnb li a {
    display: block;
    color: white;
    text-align: center;
@@ -223,6 +224,32 @@ a:active {color: #0408080;} /* selected link */
 .lnb li a:hover:not(.active) {
     background-color: #555;
     color: white;
+}
+
+.paging {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   /* overflow: hidden; */
+   background-color: white;
+}
+
+.paging li {
+   float: left;
+   display: inline;
+}
+
+.paging li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.paging li a:hover {
+   background-color: #060c73;
 }
 
 .button5 {background-color: #e1e1e1; color: black; border: 1px solid #e1e1e1; margin-top:5px;}

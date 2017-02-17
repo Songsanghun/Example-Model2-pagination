@@ -63,7 +63,6 @@ public class BoradServiceImpl implements BoardService{
 	}
 	@Override
 	public int count() throws Exception{
-		
-		return 0;
+		return dao.count();
 	}
 }

@@ -66,13 +66,12 @@ public class BoradDAOImpl implements BoardDAO {
 		List<ArticleBean> list = new ArrayList<ArticleBean>();
 		ArticleBean article = null;  //필수
 		String sql = "SELECT seq,id,title,content,regdate,read_count FROM Acticle";
-		
 		Connection connection = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD)
 				.getConnection();
 		if(connection==null){
-			System.out.println("커넥션이 널이다.");
+			//System.out.println("커넥션이 널이다.");
 		}else{
-			System.out.println("널이 아니다.");
+			//System.out.println("널이 아니다.");
 		}
 		Statement stat = connection.createStatement();
 		ResultSet rs = stat.executeQuery(sql);
@@ -103,7 +102,13 @@ public class BoradDAOImpl implements BoardDAO {
 	}
 	@Override
 	public int count() throws Exception {
-		
-		return 0;
+		int count=0;
+		String sql = "SELECT COUNT(*) AS count FROM Acticle";
+		ResultSet rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD)
+				.getConnection().createStatement().executeQuery(sql);
+		if(rs.next()){
+			count=Integer.parseInt(rs.getString("COUNT"));
+		}
+		return count;
 	}
 }
