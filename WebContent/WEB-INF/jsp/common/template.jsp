@@ -3,42 +3,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Index</title>
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath() %>/css/hanbit.css" />
+<title>Template</title>
+<link rel="stylesheet" href="../../css/hanbit.css" />
 
 </head>
-<body>
+<body style="background-image: url('images/bg_img.jpg');">
 <div id="wrapper" class="width_full_size">
 <div id="header" class="width_full_size position_fix;" style="height:120px;">
 	<div class="logo_box width_full_size text_center" style="height: 60%">
-	<a href="index.html"><img src="images/common/index_logo.png" style="margin-top:20px;"></a>
+	<a href="../../index.html"><img src="../../images/common/index_logo.png" style="margin-top:20px;"></a>
 	</div>
 	<ul class="gnb width_full_size text_center" style="color:black; font-size: 15px; height: 38%">
-		<li><a href="<%= application.getContextPath()%>/patient/registForm.do" class="text_no_underline">회원가입</a></li>
-		<li><a href="<%= application.getContextPath()%>/patient/loginForm.do" class="text_no_underline">로그인</a></li>
-		<li><a href="<%= application.getContextPath()%>/admin/loginForm.do" class="text_no_underline">자유게시판</a></li>
-		<li class="dropdown">
-			<a href="html/admin/admin.html" class="text_no_underline">관리자</a>
+		<li><a href="join.html" class="text_no_underline">회원가입</a></li>
+		<li><a href="login.html" class="text_no_underline">로그인</a></li>
+		<li><a href="../bbs/bbs_list.html" class="text_no_underline">자유게시판</a></li>
+		<li class="dropdown"><a href="../admin/admin.html" class="text_no_underline">관리자</a>
 			<div class="dropdown_content text_left" style="color:black">
 				<p><a href="" class="text_no_underline">의 사</a></p>
 				<p><a href="" class="text_no_underline">간호사</a></p>
 				<p><a href="" class="text_no_underline">환 자</a></p>
-				<p><a href="" class="text_no_underline">진 료</a></p>
 				<p><a href="" class="text_no_underline">차 트</a></p>
 			</div>
-		</li>
-		<li class="tooltip">
-			<a href="#" class="text_no_underline">병원소개</a>
-			<span class="tooltiptext">구현되지 않은 기능입니다.</span>
 		</li>	
 	</ul>
 	</div>
 <div style="height: 120px;"></div>
 <div id="container" class="width_full_size" style="height:800px;">
 
-<div class="text_center">
-<img src="images/common/intro.jpg" alt="" />
-</div>
+<!--  Content Here !!  -->
 
 </div>
 <div id="footer" class="width_full_size" style="height:100px; border-top:2px solid #5a5a5a;">

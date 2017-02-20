@@ -1,16 +1,16 @@
 package domain;
 
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Data
-public class AdminBean{
+public class ChartBean {
 
 	@Getter @Setter
-	private String admID,admPass,admName,admGen,admPhone,admEmail,admPermission;
+	private String charID,treatID,docID,patID,nurID,chartContents;
 	
 	
 	
-	
-}	
+}
