@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="../../css/hanbit.css"/>
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath() %>/css/hanbit.css"/>
 </head>
 <body>
 <div id="wrapper" class="width_full_size">
 <div id="header" class="width_full_size" style="height: 100px;position: fixed;height: 68px;z-index: 2; background-color: white;">
 	<div class="logo_box width_full_size">
-	<img src="../../images/common/index_logo.png"/>
+	<img src="<%=application.getContextPath() %>/images/common/index_logo.png"/>
 	</div>
 	<div class="gnb width_full_size">
 	<ul style="margin: 0px;">
