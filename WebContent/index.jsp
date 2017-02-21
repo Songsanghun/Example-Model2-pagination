@@ -14,9 +14,9 @@
 	<a href="index.html"><img src="images/common/index_logo.png" style="margin-top:20px;"></a>
 	</div>
 	<ul class="gnb width_full_size text_center" style="color:black; font-size: 15px; height: 38%">
-		<li><a href="<%= application.getContextPath()%>/patient/registerForm.do" class="text_no_underline">회원가입</a></li>
-		<li><a href="<%= application.getContextPath()%>/patient/loginForm.do" class="text_no_underline">로그인</a></li>
-		<li><a href="<%= application.getContextPath()%>/admin/loginForm.do" class="text_no_underline">자유게시판</a></li>
+		<li><a href="<%= application.getContextPath()%>/patient.do?action=move&page=registerForm" class="text_no_underline">회원가입</a></li>
+		<li><a href="<%= application.getContextPath()%>/patient.do?action=move&page=loginForm" class="text_no_underline">로그인</a></li>
+		<li><a href="<%= application.getContextPath()%>/board.do?action=move&page=articleList" class="text_no_underline">자유게시판</a></li>
 		<li class="dropdown">
 			<a href="html/admin/admin.html" class="text_no_underline">관리자</a>
 			<div class="dropdown_content text_left" style="color:black">
