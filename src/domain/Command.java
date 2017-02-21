@@ -18,6 +18,14 @@ public class Command implements CommandHandler{
 		this.setView();
 	}
 
+	public void setView(){
+		System.out.println("=========================디렉토리=======================: "+directory);
+		if(directory.equals("/home")){
+			this.view = "/WEB-INF/jsp/common/"+this.page+".jsp";
+		}else{
+			this.view = "/WEB-INF/jsp"+this.directory+"/"+this.page+"jsp";
+		}
+	}
 	@Override
 	public Command process() {
 		Command cmd =null;
@@ -27,9 +35,6 @@ public class Command implements CommandHandler{
 			break;
 		}
 		return cmd;
-	}
-	public void setView(){
-		this.view="/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp";
 	}
 	
 }

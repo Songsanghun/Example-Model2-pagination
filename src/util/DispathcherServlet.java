@@ -6,10 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.Command;
-
 public class DispathcherServlet {
-	public static void send(HttpServletRequest request, HttpServletResponse response, Command command)throws ServletException, IOException{
+	public static void send(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
 		request.getRequestDispatcher(Separator.command.getView()).forward(request, response);
 	}
 }
