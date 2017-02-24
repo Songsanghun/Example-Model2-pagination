@@ -27,10 +27,10 @@ public class BoradServiceTest {
 	}
 
 	@Test
-	@Ignore
+
 	public void testFindOne() throws Exception {
 		ArticleBean bean = new ArticleBean();
-		bean.setSeq("27");
+		bean.setArt_seq("27");
 		assertTrue(service.findOne(bean).getId().equals("송상"));
 	}
 
@@ -59,7 +59,7 @@ public class BoradServiceTest {
 		bean.setTitle("노답 골드");
 		bean.setContent("랭겜 15연패");
 		bean.setRegdate("2017-01-01");
-		bean.setSeq("36");
+		bean.setArt_seq("36");
 		assertTrue(service.update(bean).equals("게시물이 수정되었습니다."));
 	}
 
@@ -67,7 +67,7 @@ public class BoradServiceTest {
 	@Ignore
 	public void testDelete() throws Exception {
 		ArticleBean bean = new ArticleBean();
-		bean.setSeq("40");
+		bean.setArt_seq("40");
 		assertTrue(service.delete(bean).equals("게시물은 삭제되었습니다."));
 	}
 }

@@ -9,7 +9,7 @@ import serviceImpl.PatientServiceImpl;
 
 public class DAOTest {
 	public static void main(String[] args) {
-		PatientService service = new PatientServiceImpl();
+		/*PatientService service = new PatientServiceImpl();
 		PatientDAO dao = new PatientDAOImpl();
 		PatientBean patient = null;
 		try {
@@ -19,7 +19,7 @@ public class DAOTest {
 			e.printStackTrace();
 		}
 		System.out.println("회원이름: "+ patient.getPatName());
-		
+		*/
 		
 		
 }

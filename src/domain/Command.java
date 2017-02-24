@@ -23,14 +23,14 @@ public class Command implements CommandHandler{
 		if(directory.equals("/home")){
 			this.view = "/WEB-INF/jsp/common/"+this.page+".jsp";
 		}else{
-			this.view = "/WEB-INF/jsp"+this.directory+"/"+this.page+"jsp";
+			this.view = "/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp";
 		}
 	}
 	@Override
 	public Command process() {
 		Command cmd =null;
 		switch(action){
-		case"move":
+		case"move": case"mypage":
 			cmd= new Command(directory, action, page);
 			break;
 		}

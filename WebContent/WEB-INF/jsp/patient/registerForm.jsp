@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 <div id="wrapper" class="width_full_size">
 <div id="header" class="width_full_size position_fix;" style="height:120px;">
 	<div class="logo_box width_full_size text_center" style="height: 60%">
-	<a href="../../index.html"><img src="../../images/common/index_logo.png" style="margin-top:20px;"></a>
+	<a href="../../index.html"><img src="<%=application.getContextPath() %>/images/common/index_logo.png" style="margin-top:20px;"></a>
 	</div>
 	<ul class="gnb width_full_size" style="font-size: 15px; height: 38%">
 		<li><a href="join.html" class="text_no_underline">회원가입</a></li>

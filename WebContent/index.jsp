@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<img src="images/loading.gif" alt="" />
-<a href="<%= application.getContextPath()%>/common.do?action=move&page=main">메인 페이지로 이동</a>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<img src="${img}/loading.gif" alt="" />
+<script>
+$(function() {
+	location.href="${context}/home.do?action=move&page=main";
+});
+</script>

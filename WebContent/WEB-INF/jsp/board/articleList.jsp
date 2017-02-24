@@ -33,7 +33,7 @@
 			for (int i = 0; i < rowCount; i++) {
 		%>
 		<tr>
-			<td><%=list.get(i).getSeq()%></td>
+			<td><%=list.get(i).getArt_seq()%></td>
 			<td><%=list.get(i).getId()%></td>
 			<td><a href=""> <%=list.get(i).getTitle()%></a></td>
 			<td><%=list.get(i).getRegdate()%></td>

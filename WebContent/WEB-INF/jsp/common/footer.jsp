@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<div id="footer" class="width_full_size" style="height:100px; border-top:2px solid #5a5a5a;">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div id="footer" class="width_full_size" style="height:100px; border-top:2px solid #5a5a5a; margin-top:100px">
 	<dl class="notice">
 		<dt><a href="/NOTICE" class="h_notice">공지사항</a></dt>
 	</dl>
@@ -16,6 +16,6 @@
 	</dl>
 	<address>&copy; <strong><a href="http://www.navercorp.com/" target="_blank">NAVER Corp.</a></strong></address>
 	</div>
-</div>
+
 </body>
 </html>
