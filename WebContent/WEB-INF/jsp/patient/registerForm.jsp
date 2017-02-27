@@ -1,36 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Join</title>
-<link rel="stylesheet" href="<%=application.getContextPath() %>/css/hanbit.css" />
-
-</head>
-<body>
-<div id="wrapper" class="width_full_size">
-<div id="header" class="width_full_size position_fix;" style="height:120px;">
-	<div class="logo_box width_full_size text_center" style="height: 60%">
-	<a href="../../index.html"><img src="<%=application.getContextPath() %>/images/common/index_logo.png" style="margin-top:20px;"></a>
-	</div>
-	<ul class="gnb width_full_size" style="font-size: 15px; height: 38%">
-		<li><a href="join.html" class="text_no_underline">회원가입</a></li>
-		<li><a href="login.html" class="text_no_underline">로그인</a></li>
-		<li><a href="../bbs/bbs_list.html" class="text_no_underline">자유게시판</a></li>
-		<li class="dropdown"><a href="../admin/admin.html" class="text_no_underline">관리자</a>
-			<div class="dropdown_content text_left" style="color:black">
-				<p><a href="" class="text_no_underline">의 사</a></p>
-				<p><a href="" class="text_no_underline">간호사</a></p>
-				<p><a href="" class="text_no_underline">환 자</a></p>
-				<p><a href="" class="text_no_underline">차 트</a></p>
-			</div>
-		</li>	
-	</ul>
-	</div>
-<div style="height: 120px;"></div>
+<jsp:include page="../common/top.jsp"/>
+<jsp:include page="../common/header.jsp"/>
 <div id="container" class="width_full_size" style="height:700px;">
-<div class="width_full_size" style="margin-top:50px;">
-	<form action="" class="margin_center" style="width:500px;">
+	<form action="" class="margin_center width_full_size"  style="width:500px;margin-top:50px;">
 		<table class="width_full_size table_default">
 			<tr>
 				<td><div>
@@ -126,7 +98,7 @@
 			</tr>
 		</table>
 	</form>
-	</div>
+
 	</div>
 <div id="footer" class="width_full_size" style="height:100px; border-top:2px solid #5a5a5a;">
 	<dl class="notice">
