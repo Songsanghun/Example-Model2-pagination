@@ -30,7 +30,7 @@ $(function(){    // $(function(){});
 		goPage('${context}/patient.do','move','loginForm');
 	});
 	commonGnb.find('li:nth-child(5)').click(function(){
-		goPage('${context}/board.do','move','main');
+		goPage('${context}/board.do','move','articleList');
 	});
 
 });

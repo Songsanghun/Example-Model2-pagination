@@ -1,5 +1,7 @@
 package controller;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import domain.PatientBean;
 import service.PatientService;
 import serviceImpl.PatientServiceImpl;
 import util.DispathcherServlet;
+import util.ParamMap;
 import util.Separator;
 
 @WebServlet("/patient.do")  
@@ -36,8 +39,6 @@ public class PatientController extends HttpServlet {
 				System.out.println("생년월일 : "+birth);
 				request.setAttribute("birth", birth);
 				DispathcherServlet.send(request, response);
-			
-			
 			break;
 		case "login":
 			String pw = request.getParameter("password");
@@ -54,9 +55,65 @@ public class PatientController extends HttpServlet {
 					System.out.println("로그인 성공후 세션 아이디"+service.getSession().getPatID());
 					DispathcherServlet.send(request, response);
 				}else{
-					
 					System.out.println("=========로그인실패===========");
 					Separator.command.setPage("loginForm");
+					System.out.println("가는 페이지"+Separator.command.getPage());
+					Separator.command.setView();
+					DispathcherServlet.send(request, response);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case "register": 
+			String id = request.getParameter("id");
+			String name = request.getParameter("name");
+			String addr = request.getParameter("addr");
+			String email= request.getParameter("email");
+			String password = request.getParameter("password");
+			String mBirth = request.getParameter("birth");
+			String month = request.getParameter("month");
+			String date = request.getParameter("date");
+			String telecom = request.getParameter("telecom");
+			String phoneNo1 = request.getParameter("phoneNo1");
+			String phoneNo2 = request.getParameter("phoneNo2");
+			String phoneNo3 = request.getParameter("phoneNo3");
+			String gender = request.getParameter("gender");
+			String job = ParamMap.getValues(request, "job");
+			
+			ArrayList<String> list = new ArrayList<>();
+			list.add(id);
+			list.add(email);
+			list.add(password);
+			list.add(mBirth);
+			list.add(month);
+			list.add(date);
+			list.add(telecom);
+			list.add(phoneNo1);
+			list.add(phoneNo2);
+			list.add(phoneNo3);
+			list.add(gender);
+			list.add(job);
+			System.out.println(list);
+			String patJumin = "";
+		
+			bean.setPatID(id);
+			bean.setPatGen(gender);
+			bean.setPatAddr(addr);
+			bean.setPatEmail(email);
+			bean.setPatJob(job);
+			bean.setPatJumin(patJumin);
+			bean.setPatName(name);
+			bean.setPatPass(password);
+			bean.setPatPhone(phoneNo1+"-"+phoneNo2+"-"+phoneNo3);
+			try {
+				if(service.join(bean)==1){
+					System.out.println("=========회원가입 성공===========");
+					DispathcherServlet.send(request, response);
+				}else{
+					System.out.println("=========회원 가입 실패===========");
+					Separator.command.setPage("registerForm");
 					System.out.println("가는 페이지"+Separator.command.getPage());
 					Separator.command.setView();
 					DispathcherServlet.send(request, response);
