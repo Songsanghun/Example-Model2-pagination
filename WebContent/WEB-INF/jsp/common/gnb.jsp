@@ -1,52 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div style="height: 70px;"></div> 
-<ul id="commonGnb">
-		<li><a class="text_no_underline">회원가입</a></li>
-		<li><a class="text_no_underline">고객:로그인</a></li>
-		<li><a class="text_no_underline">스탭:로그인</a></li>
-		<li><a class="text_no_underline">관리자:로그인</a></li>
-		<li><a class="text_no_underline" >자유게시판</a></li>
+<ul id="commonGnb"> 
+		<li><a>회원가입</a></li>
+		<li><a>고객:로그인</a></li>
+		<li><a>스탭:로그인</a></li>
+		<li><a>관리자:로그인</a></li>
+		<li><a>자유게시판</a></li>
 		<li class="tooltip">
 			<a href="#" class="text_no_underline">병원소개</a>
 			<span class="tooltiptext">구현되지 않은 기능입니다.</span>
 		</li>	
 </ul>
-<script>
-$(function(){    // $(function(){});
 
-	var commonGnb = $('#commonGnb');
-	commonGnb.addClass('gnb').addClass('width_full_size').addClass('text_center');
+<script>
+$(function() {                 
+	var commonGnb=$('#commonGnb');
+	
+	commonGnb.addClass('gnb').addClass('width_full_size').addClass('text_center').css('font-size','15px').css('height','7%');
+	
 	commonGnb.find('li:nth-child(1)').click(function(){
-		alert('제이쿼리 실행!!!!!!!!!!!!!!!!!!!!!!');
-			goPage('${context}/patient.do','move','registerForm');
+		alert('JQuery Test!');
+		goPage('${context}/patient.do','move', 'registerForm');
 	});
+	
 	commonGnb.find('li:nth-child(2)').click(function(){
-		goPage('${context}/patient.do','move','loginForm');
+		alert('aPatLogin.onclick');
+		goPage('${context}/patient.do', 'move', 'loginForm');
 	});
 	commonGnb.find('li:nth-child(3)').click(function(){
-		goPage('${context}/patient.do','move','loginForm');
+		alert('aStaffLogin.onclick');
+		goPage('${context}/staff.do', 'move', 'loginForm');
 	});
 	commonGnb.find('li:nth-child(4)').click(function(){
-		goPage('${context}/patient.do','move','loginForm');
+		alert('aAdminLogin.onclick');
+		goPage('${context}/admin.do', 'move', 'loginForm');
 	});
+	
 	commonGnb.find('li:nth-child(5)').click(function(){
-		goPage('${context}/board.do','move','articleList');
+		alert('게시판 가기');
+		goList('${context}/board.do', 'list', 'articleList', '1');
 	});
-
 });
-
-/* function goPatLogin(){
-	location.href="${context}/patient.do?action=move&page=loginForm";
-}
-function goStaffLogion(){
-	location.href="${context}/patient.do?action=move&page=loginForm";
-}
-function goAdmin(){
-	location.href="${context}/patient.do?action=move&page=loginForm";
-}
-function goBorad(){
-	location.href="${context}/board.do?action=move&page=main.do";
-}
-window.onload=goPage(); */
-
 </script>

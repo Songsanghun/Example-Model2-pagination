@@ -3,18 +3,18 @@ package serviceImpl;
 import java.util.*;
 
 import dao.BoardDAO;
-import daoImpl.BoradDAOImpl;
+import daoImpl.BoardDAOImpl;
 import domain.ArticleBean;
 import service.BoardService;
 
-public class BoradServiceImpl implements BoardService{
-	private static BoradServiceImpl instance = new BoradServiceImpl();
-	public static BoradServiceImpl getInstance() {
+public class BoardServiceImpl implements BoardService{
+	private static BoardServiceImpl instance = new BoardServiceImpl();
+	public static BoardServiceImpl getInstance() {
 		return instance;
 	}
 	BoardDAO dao; 
-	BoradServiceImpl() {
-		dao = BoradDAOImpl.getInstance();
+	BoardServiceImpl() {
+		dao = BoardDAOImpl.getInstance();
 	}
 	@Override
 	public String addArticle(ArticleBean param)throws Exception{
@@ -38,8 +38,9 @@ public class BoradServiceImpl implements BoardService{
 		return dao.selectByWord(param);
 	}
 	@Override
-	public List<ArticleBean> list() throws Exception{
-		return dao.selectAll();
+	public List<ArticleBean> list(int[] pageArr) throws Exception{
+		
+		return dao.selectAll(pageArr);
 	}
 	@Override
 	public String update(ArticleBean param) throws Exception{

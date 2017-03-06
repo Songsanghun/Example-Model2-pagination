@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import domain.PatientBean;
 import service.PatientService;
 import serviceImpl.PatientServiceImpl;
-import util.DispathcherServlet;
+import util.DispatcherServlet;
 import util.ParamMap;
 import util.Separator;
 
@@ -30,7 +29,7 @@ public class PatientController extends HttpServlet {
 		//System.out.println(); = Separator.command.getAction();   same syntax이다.
 		switch (Separator.command.getAction()) {
 		case "move":
-			DispathcherServlet.send(request, response);
+			DispatcherServlet.send(request, response);
 			break;
 		case "mypage": 
 			System.out.println("==마이페이지 진입== ");
@@ -38,7 +37,7 @@ public class PatientController extends HttpServlet {
 				String birth = service.getBirth(service.getSession().getPatJumin());
 				System.out.println("생년월일 : "+birth);
 				request.setAttribute("birth", birth);
-				DispathcherServlet.send(request, response);
+				DispatcherServlet.send(request, response);
 			break;
 		case "login":
 			String pw = request.getParameter("password");
@@ -53,13 +52,13 @@ public class PatientController extends HttpServlet {
 					System.out.println("=========로그인성공===========");
 					session.setAttribute("user", temp);
 					System.out.println("로그인 성공후 세션 아이디"+service.getSession().getPatID());
-					DispathcherServlet.send(request, response);
+					DispatcherServlet.send(request, response);
 				}else{
 					System.out.println("=========로그인실패===========");
 					Separator.command.setPage("loginForm");
 					System.out.println("가는 페이지"+Separator.command.getPage());
 					Separator.command.setView();
-					DispathcherServlet.send(request, response);
+					DispatcherServlet.send(request, response);
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -110,13 +109,13 @@ public class PatientController extends HttpServlet {
 			try {
 				if(service.join(bean)==1){
 					System.out.println("=========회원가입 성공===========");
-					DispathcherServlet.send(request, response);
+					DispatcherServlet.send(request, response);
 				}else{
 					System.out.println("=========회원 가입 실패===========");
 					Separator.command.setPage("registerForm");
 					System.out.println("가는 페이지"+Separator.command.getPage());
 					Separator.command.setView();
-					DispathcherServlet.send(request, response);
+					DispatcherServlet.send(request, response);
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

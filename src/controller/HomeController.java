@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import util.DispathcherServlet;
+import util.DispatcherServlet;
 import util.Separator;
 
 @WebServlet("/home.do")
@@ -21,11 +21,11 @@ public class HomeController extends HttpServlet {
 		Separator.init(request, response);
 		switch (Separator.command.getAction()) {
 		case "move":
-			DispathcherServlet.send(request, response);
+			DispatcherServlet.send(request, response);
 			break;
 		case "logout":
 			session.invalidate();
-			DispathcherServlet.send(request, response);
+			DispatcherServlet.send(request, response);
 		default:
 			break;
 		}

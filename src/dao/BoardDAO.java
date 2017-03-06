@@ -13,7 +13,7 @@ public interface BoardDAO {
 
 	public List<ArticleBean> selectByWord(String[] param)throws Exception;
 
-	public List<ArticleBean> selectAll()throws Exception;
+	public List<ArticleBean> selectAll(int[] pageArr)throws Exception;
 
 	// u
 	public int update(ArticleBean param)throws Exception;

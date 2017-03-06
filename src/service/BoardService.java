@@ -8,7 +8,7 @@ public interface BoardService {
 	//r
 	public ArticleBean findOne(ArticleBean param)throws Exception;
 	public List<ArticleBean> findSome(String[] param)throws Exception;
-	public List<ArticleBean> list()throws Exception;
+	public List<ArticleBean> list(int[] pageArr)throws Exception;
 	
 	//u
 	public String update(ArticleBean param)throws Exception;

@@ -10,9 +10,9 @@ import org.junit.Test;
 
 import domain.ArticleBean;
 
-public class BoradServiceTest {
+public class BoardServiceTest {
 
-	BoradServiceImpl service = new BoradServiceImpl();
+	BoardServiceImpl service = new BoardServiceImpl();
 
 	@Test
 	@Ignore
@@ -46,9 +46,9 @@ public class BoradServiceTest {
 	}
 	@Test
 	@Ignore
-	public void testList() throws Exception {
+	public void testList(int[] pageArr) throws Exception {
 		List<ArticleBean> list = new ArrayList<>();
-		list = service.list();
+		list = service.list(pageArr);
 		assertTrue(list.get(0).getId().equals("송상"));
 	}
 

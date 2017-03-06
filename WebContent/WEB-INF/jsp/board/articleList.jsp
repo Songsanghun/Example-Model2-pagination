@@ -1,62 +1,71 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ page import="domain.ArticleBean"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="service.BoardService"%>
-<%@ page import="serviceImpl.BoradServiceImpl"%>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Document</title>
-<link rel="stylesheet" href="../../css/hanbit.css" />
-</head>
-<body>
-<% 			
-			BoardService service = BoradServiceImpl.getInstance();
-			List<ArticleBean> list = service.list();
-			int rowCount = 5;
-			int card = service.count();
-%>
-	<div style="width: 90%">
-	<table class="table_default margin_center text_center"
-		style="width: 500px; margin-top: 100px">
-		<tr><th colspan="5" style="text-align:  right;">총게시글수: <%=card %> 건</th></tr>
-		<tr>
-			<th>No</th>
-			<th>ID</th>
-			<th>제목</th>
-			<th>등록일</th>
-			<th>조회수</th>
-		</tr>
-		<%
-			for (int i = 0; i < rowCount; i++) {
-		%>
-		<tr>
-			<td><%=list.get(i).getArt_seq()%></td>
-			<td><%=list.get(i).getId()%></td>
-			<td><a href=""> <%=list.get(i).getTitle()%></a></td>
-			<td><%=list.get(i).getRegdate()%></td>
-			<td><%=list.get(i).getReadCount()%></td>
-		</tr>
-		<%
-			}
-		%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:include page="../common/top.jsp"/>
+<jsp:include page="../common/header.jsp"/>
+<table id="articleList">
+  	<tr><th>총게시글수: ${count} 건</th></tr>
+	<tr>
+		<th>No</th>
+		<th>ID</th>
+		<th>제목</th>
+		<th>등록일</th>
+		<th>조회수</th>
+	</tr>
+<c:forEach var="article" items="${requestScope.list}">
+	<tr>
+		<td>${article.art_seq}</td>
+		<td>${article.id}</td>
+		<td><a href="${context}/board.do?action=detail&page=articleDetail&seq=${article.art_seq}">${article.title}</a></td>
+		<td>${article.regdate}</td>
+		<td>${article.readCount}</td>
+	</tr>
+</c:forEach>
+
 </table>
-		<nav style="width : 500px; margin : 0 auto;">
-			<ul class="gnb" style="background-color: white;">
-<%
-			int pageCount = (card%rowCount==0)?(card / rowCount):(card / rowCount +1);
-			for(int i=0;i<pageCount;i++){
-%>
-				<li style="text-align: center; width: 20px">
-<a href=""> <%= i+1 %></a>
-				</li>
-<%
-			}
-%>	
-			</ul>
-		</nav>
-		</div>
-</body>
-</html>
+
+<nav style="width: 500px;height:50px;margin:0 auto;background: gray; ">
+	<ul class="gnb" style="width: 100%;">
+	<c:if test="${requestScope.prevBlock  gt 0}">
+	<li>
+		<a href="${context}/board.do?action=list&page=articleList&pageNO
+		=${requestScope.prevBlock}">◀PREV</a>
+	</li>
+	</c:if>
+	<c:forEach varStatus="i" begin="${requestScope.blockStart}" end="${requestScope.blockEnd}"
+		 step="1" >
+		<li>
+		<c:choose>
+			<c:when test="${i.index eq pageNO}">
+				<a href="#"><font style="color:red">${i.index}</font></a>
+			</c:when>
+			<c:otherwise>
+				<a href="${context}/board.do?action=list&page=articleList&pageNO
+				=${i.index}">${i.index}</a>
+			</c:otherwise>
+		</c:choose>
+		</li>
+	</c:forEach>
+	<c:if test="${requestScope.nextBlock  le pageCount}">
+	<li>
+		<a href="${context}/board.do?action=list&page=articleList&pageNO
+		=${requestScope.nextBlock}">NEXT▶</a>
+	</li>
+	</c:if>
+	</ul>
+</nav> 
+<div>
+  총 페이지수${pageCount} <br />
+  이전블록시작페이지 ${prevBlock} <br />
+  현재블록시작페이지 ${blockStart}<br />
+  현재블록끝페이지 ${blockEnd}<br />
+  다음블록시작페이지 ${nextBlock}<br />
+</div >
+<div style="height:200px"></div>
+<script>
+$(function(){
+	var articleList=$('#articleList');
+	articleList.addClass('table_default').addClass('margin_center')
+		.css('width','500px').css('margin-top','30px');
+	articleList.find('tr:nth-child(1)').find('th:nth-child(1)')
+	.attr('colspan','5').css('text-align','right');
+});
+</script>

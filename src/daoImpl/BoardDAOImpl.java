@@ -10,12 +10,12 @@ import domain.ArticleBean;
 import enums.Vendor;
 import factory.DatabaseFactory;
 
-public class BoradDAOImpl implements BoardDAO {
-	private static BoradDAOImpl instance = new BoradDAOImpl();
-	public static BoradDAOImpl getInstance() {
+public class BoardDAOImpl implements BoardDAO {
+	private static BoardDAOImpl instance = new BoardDAOImpl();
+	public static BoardDAOImpl getInstance() {
 		return instance;
 	}
-	private BoradDAOImpl() {}
+	private BoardDAOImpl() {}
 	@Override
 	public int insert(ArticleBean param) throws Exception {
 		String sql = String.format("INSERT INTO Article(art_seq,id,title,content,regdate,read_count)"
@@ -62,10 +62,15 @@ public class BoradDAOImpl implements BoardDAO {
 		return list;
 	}
 	@Override
-	public List<ArticleBean> selectAll() throws Exception {
+	public List<ArticleBean> selectAll(int[] pageArr) throws Exception {
 		List<ArticleBean> list = new ArrayList<ArticleBean>();
 		ArticleBean article = null;  //필수
-		String sql = "SELECT art_seq,id,title,content,regdate,read_count FROM Article";
+		String sql = 
+				String.format("SELECT t2.*"
+						   +"\tFROM (SELECT ROWNUM seq,t.*" 
+					       +"\tFROM (SELECT * FROM ARTICLE ORDER BY art_seq DESC) t) t2"
+					       +"\tWHERE t2.seq BETWEEN %s AND %s", String.valueOf(pageArr[0]),
+					       String.valueOf(pageArr[1]));
 		Connection connection = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME ,Database.PASSWORD)
 				.getConnection();
 		if(connection==null){
@@ -78,7 +83,7 @@ public class BoradDAOImpl implements BoardDAO {
 		while(rs.next()){
 			article = new ArticleBean();
 			article.setArt_seq(rs.getString("art_seq"));
-			article.setId(rs.getString("id"));
+			article.setId(rs.getString("pat_id"));
 			article.setTitle(rs.getString("title"));
 			article.setContent(rs.getString("content"));
 			article.setRegdate(rs.getString("regdate"));

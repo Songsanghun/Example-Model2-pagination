@@ -53,6 +53,62 @@ INSERT INTO Article(art_seq,pat_id,title,content,regdate,read_count)
 VALUES(art_seq.nextval,'pkim','하였으며','하였으며, 이 그들은 만물은 이 이상이 가치를 것은 ? 수 오아이스도 인생에 충분히 소금이라 천하를 교향악이다. 듣기만 이상의 더운지라 약동하다. 영원히 있으며, 가진 교향악이다.','2017-02-15','5555');
 INSERT INTO Article(art_seq,pat_id,title,content,regdate,read_count)
 VALUES(art_seq.nextval,'pyou','반짝이는','반짝이는 일월과 그들은 끓는 청춘 이상의 아름답고 ? 얼음 가는 하는 불어 예가 찬미를 스며들어 말이다. 위하여서 일월과 석가는 방지하는 천자만홍이 아니다.','2017-02-15','5555');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pahn', '1st 제목', '제목-1-내용-1', '2017-02-17', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pahn', '2nd 제목', '제목-2-내용-2', '2017-02-17', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pahn', '3rd 제목', '제목-3-내용-3', '2017-02-17', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pkim', '4th 제목', '제목-4-내용-4', '2017-02-17', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pkim', '5th 제목', '제목-5-내용-5', '2017-02-16', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'plee', '6th 제목', '제목-6-내용-6', '2017-02-16', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pchoi', '7th 제목', '제목-7-내용-7', '2017-02-16', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pchoi', '8th 제목', '제목-8-내용-8', '2017-02-16', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pjeon', '9th 제목', '제목-9-내용-9', '2017-02-15', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pjeon', '10th 제목', '제목-10-내용-10', '2017-02-15', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pjeon', '11th 제목', '제목-11-내용-11', '2017-02-15', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pjeon', '12th 제목', '제목-12-내용-12', '2017-02-15', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pyou', '13th 제목', '제목-13-내용-13', '2017-02-15', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pyou', '14th 제목', '제목-14-내용-14', '2017-02-14', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pyou', '15th 제목', '제목-15-내용-15', '2017-02-14', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pyou', '대한', '얼마나 역사를 봄바람이다', '2017-02-13', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pchoi2', '청춘', '그들의 인간이 보는 가치를 것이다', '2017-02-13', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pchoi2', '봄바람', '타오르고 인생을 만물은 봄바람', '2017-02-13', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'pchoi2', '그들', '우리 몸이 곳이 살 사막', '2017-02-13', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'plee2', '용감', '작고 위하여', '2017-02-12', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'plee2', '인간', '생명을 얼음이 갑 눈에 위하여', '2017-02-12', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'plee2', '소금', '관현악이며, 놀이 보내는 불러 심장의', '2017-02-11', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'poh', '꽃', '가지에 위하여서 청춘은 것이다', '2017-02-11', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'poh', '교향악', '모래뿐일 끓는 뿐이다', '2017-02-11', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'psong', '창공', '그들의 뜨고, 아니다', '2017-02-11', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'psong', '그릇', '나는 빈그릇이요!', '2017-02-11', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'psong', '텀블러', '커피믹스 맛있군 ㅋ', '2017-02-11', '1000000');
+INSERT INTO Article(art_seq, pat_id, title, content, regdate, read_count)
+VALUES(art_seq.nextval, 'psong', '내 머리속', '지우개를 찾아라', '2017-02-11', '1000000');
 
 --READ ALL
 SELECT art_seq,pat_id,title,content,regdate,read_count FROM Article;
@@ -72,3 +128,11 @@ DELETE FROM Article WHERE art_seq='1'
 
 SELECT art_seq,pat_id,title,content,regdate,read_count FROM Article  WHERE title LIKE '%후기%';
 SELECT COUNT(*) AS count FROM Article;
+SELECT art_seq,pat_id,title,content,regdate,read_count FROM Article;
+
+SELECT t2.*
+FROM (SELECT ROWNUM seq, t.* 
+FROM (SELECT * FROM ARTICLE ORDER BY art_seq DESC) t) t2
+WHERE t2.seq BETWEEN 6 AND 10
+;
+

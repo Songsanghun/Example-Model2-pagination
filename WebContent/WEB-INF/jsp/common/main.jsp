@@ -2,7 +2,7 @@
 <jsp:include page="top.jsp"/>
 <jsp:include page="header.jsp"/>
 <jsp:include page="gnb.jsp"/>
-
-<jsp:include page="container.jsp"/>
-
-<jsp:include page="footer.jsp"/>
+<div style="position:relative; top: 100px;width: 99%;height: 100%">
+	<jsp:include page="container.jsp"/>
+</div>
+<jsp:include page="footer.jsp"/> 
